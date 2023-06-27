@@ -1,5 +1,6 @@
 import 'package:chat_app_1/constants/app_string.dart';
 import 'package:chat_app_1/module/bottom_navigation/main_controller.dart';
+import 'package:chat_app_1/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -15,14 +16,24 @@ appBar() {
         child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 0.5),
       child: Container(
-        decoration: const BoxDecoration(
-            borderRadius: BorderRadius.only(
+        decoration: BoxDecoration(
+            borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(8),
                 bottomRight: Radius.circular(8)),
-            gradient: LinearGradient(
-                colors: [Color(0xff58D582), Color(0xff47A98C)],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight)),
+            gradient: Constant.isLight
+                ? const LinearGradient(
+                    colors: [Color(0xff58D582), Color(0xff47A98C)],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight)
+                : Constant.isPink
+                    ? const LinearGradient(
+                        colors: [Colors.pink, Colors.pink],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight)
+                    : const LinearGradient(
+                        colors: [Colors.blue, Colors.white, Colors.blue],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight)),
         child: Row(children: [
           const SizedBox(
             width: 10,
@@ -89,14 +100,24 @@ chatScreenAppBar(
         child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 0.5),
       child: Container(
-        decoration: const BoxDecoration(
-            borderRadius: BorderRadius.only(
+        decoration: BoxDecoration(
+            borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(8),
                 bottomRight: Radius.circular(8)),
-            gradient: LinearGradient(
-                colors: [Color(0xff58D582), Color(0xff47A98C)],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight)),
+            gradient: Constant.isLight
+                ? const LinearGradient(
+                    colors: [Color(0xff58D582), Color(0xff47A98C)],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight)
+                : Constant.isPink
+                    ? const LinearGradient(
+                        colors: [Colors.pink, Colors.pink],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight)
+                    : const LinearGradient(
+                        colors: [Colors.blue, Colors.blue],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight)),
         child: Row(children: [
           const SizedBox(
             width: 10,

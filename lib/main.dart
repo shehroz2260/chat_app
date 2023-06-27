@@ -1,5 +1,7 @@
 import 'package:chat_app_1/module/onboarding/splash_screen.dart';
 import 'package:chat_app_1/module/theme_constant/theme_manager.dart';
+import 'package:chat_app_1/utils/app_locale.dart';
+import 'package:chat_app_1/utils/constants.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -23,10 +25,18 @@ class _MyAppState extends State<MyApp> {
   final controller = Get.put(ThemeManager());
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      theme: controller.icon ? controller.lightTheme : controller.darkTheme,
-      debugShowCheckedModeBanner: false,
-      home: const SplashScreen(),
-    );
+    return GetBuilder<ThemeManager>(builder: (context) {
+      return GetMaterialApp(
+        translations: AppLocale(),
+        locale: const Locale("en", "Us"),
+        theme: Constant.isLight
+            ? controller.lightTheme
+            : Constant.isPink
+                ? controller.pinkerTheme
+                : controller.darkTheme,
+        debugShowCheckedModeBanner: false,
+        home: const SplashScreen(),
+      );
+    });
   }
 }

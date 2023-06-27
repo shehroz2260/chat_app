@@ -1,9 +1,9 @@
 import 'package:chat_app_1/constants/app_asset.dart';
 import 'package:chat_app_1/utils/app_style.dart';
+import 'package:chat_app_1/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-import '../module/bottom_navigation/main_controller.dart';
+import 'package:get/get.dart';
 
 class VoidBottomNavBar extends StatelessWidget {
   final int currentIndex;
@@ -20,10 +20,18 @@ class VoidBottomNavBar extends StatelessWidget {
       child: BottomNavigationBar(
         currentIndex: currentIndex,
         onTap: onTap,
-        backgroundColor: Colors.white,
+        backgroundColor: Constant.isLight
+            ? Colors.white
+            : Constant.isPink
+                ? Colors.pink
+                : Colors.blue,
         type: BottomNavigationBarType.fixed,
         selectedIconTheme: IconThemeData(color: AppStyle.greencolor),
-        selectedItemColor: AppStyle.greencolor,
+        selectedItemColor: Constant.isLight
+            ? AppStyle.greencolor
+            : Constant.isPink
+                ? Colors.white
+                : Colors.red,
         selectedFontSize: 12,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -34,13 +42,19 @@ class VoidBottomNavBar extends StatelessWidget {
                 height: 20.0,
                 colorFilter: ColorFilter.mode(
                   currentIndex == 0
-                      ? AppStyle.greencolor
-                      : const Color(0xff77838F),
+                      ? Constant.isLight
+                          ? AppStyle.greencolor
+                          : Constant.isPink
+                              ? Colors.white
+                              : Colors.red
+                      : Constant.isLight
+                          ? const Color(0xff77838F)
+                          : Colors.white,
                   BlendMode.srcIn,
                 ),
               ),
             ),
-            label: mainTabsLabel[0],
+            label: "Home".tr,
           ),
           BottomNavigationBarItem(
             icon: Padding(
@@ -54,14 +68,20 @@ class VoidBottomNavBar extends StatelessWidget {
                   fit: BoxFit.cover,
                   colorFilter: ColorFilter.mode(
                     currentIndex == 1
-                        ? AppStyle.greencolor
-                        : const Color(0xff77838F),
+                        ? Constant.isLight
+                            ? AppStyle.greencolor
+                            : Constant.isPink
+                                ? Colors.white
+                                : Colors.red
+                        : Constant.isLight
+                            ? const Color(0xff77838F)
+                            : Colors.white,
                     BlendMode.srcIn,
                   ),
                 ),
               ),
             ),
-            label: mainTabsLabel[1],
+            label: "Chats".tr,
           ),
           // BottomNavigationBarItem(
           //   icon: Padding(
@@ -91,14 +111,20 @@ class VoidBottomNavBar extends StatelessWidget {
                   fit: BoxFit.cover,
                   colorFilter: ColorFilter.mode(
                     currentIndex == 2
-                        ? AppStyle.greencolor
-                        : const Color(0xff77838F),
+                        ? Constant.isLight
+                            ? AppStyle.greencolor
+                            : Constant.isPink
+                                ? Colors.white
+                                : Colors.red
+                        : Constant.isLight
+                            ? const Color(0xff77838F)
+                            : Colors.white,
                     BlendMode.srcIn,
                   ),
                 ),
               ),
             ),
-            label: mainTabsLabel[2],
+            label: "Settings".tr,
           ),
         ],
       ),

@@ -13,56 +13,54 @@ class ApperanceScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(ThemeManager());
+    Get.put(ThemeManager());
     return Scaffold(
-      appBar:
-          settingAppBar(image: AppAsset.apperance, name: AppString.appereance),
+      appBar: settingAppBar(
+          image: AppAsset.apperance, name: AppString.appereance.tr),
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(
-              height: 14,
-            ),
-            SizedBox(
-              height: Get.height * 0.01,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 23),
-              child: Row(
-                children: [
-                  ThemeWidget(
-                    onTap: () {
-                      controller.icon = true;
-                    },
-                    image: AppAsset.lightTheme,
-                    themeName: AppString.lightTheme,
-                    color: AppStyle.greencolor,
-                  ),
-                  const Expanded(child: SizedBox()),
-                  ThemeWidget(
-                    onTap: () {
-                      controller.icon = false;
-                    },
-                    image: AppAsset.darkTheme,
-                    themeName: AppString.darkTheme,
-                    color: const Color(0xff77838F),
-                  ),
-                ],
+        child: GetBuilder<ThemeManager>(builder: (controller) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(
+                height: 14,
               ),
-            ),
-            const SizedBox(height: 23),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 23),
-              child: ThemeWidget(
-                onTap: () {},
-                image: AppAsset.pinkerTheme,
-                themeName: AppString.pinkerTheme,
-                color: const Color(0xffDC82EB),
+              SizedBox(
+                height: Get.height * 0.01,
               ),
-            ),
-          ],
-        ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 23),
+                child: Row(
+                  children: [
+                    ThemeWidget(
+                      onTap: controller.lightFun,
+                      image: AppAsset.lightTheme,
+                      themeName: AppString.lightTheme.tr,
+                      color: AppStyle.greencolor,
+                    ),
+                    const Expanded(child: SizedBox()),
+                    ThemeWidget(
+                      onTap: controller.darkFun,
+                      image: AppAsset.darkTheme,
+                      themeName: AppString.darkTheme.tr,
+                      color: const Color(0xff77838F),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 23),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 23),
+                child: ThemeWidget(
+                  onTap: controller.pinkerFun,
+                  image: AppAsset.pinkerTheme,
+                  themeName: AppString.pinkerTheme.tr,
+                  color: const Color(0xffDC82EB),
+                ),
+              ),
+            ],
+          );
+        }),
       ),
     );
   }

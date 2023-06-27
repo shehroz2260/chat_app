@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:chat_app_1/constants/app_asset.dart';
 import 'package:chat_app_1/utils/app_style.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +34,9 @@ class SettingRowWidget extends StatelessWidget {
             style: AppStyle.termandCondition,
           ),
           const Spacer(),
-          SvgPicture.asset(AppAsset.forwardIcon),
+          SvgPicture.asset(
+            AppAsset.forwardIcon,
+          ),
         ],
       ),
     );
@@ -66,7 +70,6 @@ class SettingRowwithoutImageWidget extends StatelessWidget {
                   ),
                   const Spacer(),
                   SvgPicture.asset(AppAsset.forwardIcon,
-                      // ignore: deprecated_member_use
                       color: const Color(0xffADB5BD)),
                 ],
               ),

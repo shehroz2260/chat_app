@@ -25,7 +25,7 @@ class SettingTab extends StatelessWidget {
           children: [
             const SizedBox(height: 14),
             Text(
-              AppString.more,
+              AppString.more.tr,
               style: AppStyle.fontStyle18.copyWith(color: AppStyle.greencolor),
             ),
             const SizedBox(height: 20),
@@ -56,9 +56,6 @@ class SettingTab extends StatelessWidget {
                             Constant.userModel!.phoneNumer,
                             style: AppStyle.fontStyle12,
                           ),
-
-                    // if (Constant.userModel!.phoneNumer.isNotEmpty)
-                    //
                   ],
                 ),
                 const Spacer(),
@@ -68,7 +65,7 @@ class SettingTab extends StatelessWidget {
             const SizedBox(height: 24),
             SettingRowWidget(
               image: AppAsset.accounts,
-              name: AppString.account,
+              name: AppString.account.tr,
               onTap: () {
                 Get.to(const AccountScreen());
               },
@@ -76,7 +73,7 @@ class SettingTab extends StatelessWidget {
             const SizedBox(height: 24),
             SettingRowWidget(
               image: AppAsset.chatIcon,
-              name: AppString.chats,
+              name: AppString.chats.tr,
               onTap: () {
                 Get.to(const ChatScreenSetting());
               },
@@ -84,7 +81,7 @@ class SettingTab extends StatelessWidget {
             const SizedBox(height: 40),
             SettingRowWidget(
               image: AppAsset.apperance,
-              name: AppString.appereance,
+              name: AppString.appereance.tr,
               onTap: () {
                 Get.to(const ApperanceScreen());
               },
@@ -92,31 +89,31 @@ class SettingTab extends StatelessWidget {
             const SizedBox(height: 24),
             SettingRowWidget(
               image: AppAsset.notifications,
-              name: AppString.notification,
+              name: AppString.notification.tr,
               onTap: () {},
             ),
             const SizedBox(height: 24),
             SettingRowWidget(
               image: AppAsset.privacy,
-              name: AppString.privacy,
+              name: AppString.privacy.tr,
               onTap: () {},
             ),
             const SizedBox(height: 24),
             SettingRowWidget(
               image: AppAsset.dataUsage,
-              name: AppString.dataUsage,
+              name: AppString.dataUsage.tr,
               onTap: () {},
             ),
             const SizedBox(height: 24),
             SettingRowWidget(
               image: AppAsset.help,
-              name: AppString.help,
+              name: AppString.help.tr,
               onTap: () {},
             ),
             const SizedBox(height: 24),
             SettingRowWidget(
               image: AppAsset.logOutLogo,
-              name: AppString.logOutText,
+              name: AppString.logOutText.tr,
               onTap: () {
                 AuthHandler().logOut();
               },

@@ -24,4 +24,4 @@ const List<Widget> _mainTabs = <Widget>[
   SettingTab(),
 ];
 
-const List<String> mainTabsLabel = <String>["Home", "Chats", "Settings"];
+List<String> mainTabsLabel = <String>["Home".tr, "Chats".tr, "Settings".tr];
